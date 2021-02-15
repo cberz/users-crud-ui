@@ -1,10 +1,11 @@
 <template>
   <div class="mt-10 px-24 flex flex-col">
     <Message :message="message" />
-    <div class="self-end">
+    <div class="flex justify-between">
+      <h1 class="text-3xl leading-6">User administration system</h1>
       <NuxtLink
         class="py-3 px-6 space-x-2 inline-flex items-center bg-green-500 text-white rounded-lg hover:bg-green-600"
-        to="/user"
+        to="/users"
       >
         <svg
           class="h-6 w-6 stroke-current"
@@ -62,11 +63,11 @@
           <tr class="" v-for="user in users" :key="user.id">
             <td class="py-4 px-6">{{ user.personal_id }}</td>
             <td class="py-4 px-6 space-x-4 flex items-center">
-              <img
+              <!-- <img
                 class="h-12 w-12 rounded-full border-2 border-green-400"
                 :src="user.avatar"
                 alt="User Picture"
-              />
+              /> -->
               <span>{{ user.name }} {{ user.lastname }}</span>
             </td>
             <td class="py-4 px-6">{{ user.email }}</td>
@@ -89,7 +90,10 @@
             </td>
             <td class="py-4 px-6">
               <div class="space-x-6 flex items-center">
-                <NuxtLink :to="{ name: 'users-id', params: { id: user.id } }">
+                <button
+                  class="focus:outline-none"
+                  @click="redirectUpdate(user.id)"
+                >
                   <svg
                     class="h-4 w-4 stroke-current text-blue-500"
                     xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +107,7 @@
                       d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
                     />
                   </svg>
-                </NuxtLink>
+                </button>
                 <button class="focus:outline-none" @click="deleteUser(user.id)">
                   <svg
                     class="h-4 w-4 stroke-current text-red-600"
@@ -153,10 +157,30 @@ export default {
       });
     },
     deleteUser(id) {
-      this.$axios.$delete(`/api/users/${id}`).then((res) => {
-        this.message = res.message;
-        this.getUsers();
-      });
+      if (this.$store.state.apiToken) {
+        this.$axios
+          .$delete(`/api/users/${id}`, {
+            headers: {
+              Authorization: `Bearer ${this.$store.state.apiToken}`,
+            },
+          })
+          .then((res) => {
+            this.message = res.message;
+            this.getUsers();
+          })
+          .catch((error) => {
+            this.message = error.response.data.message;
+          });
+      } else {
+        this.message = "You must be authenticated to apply this action";
+      }
+    },
+    redirectUpdate(id) {
+      if (this.$store.state.apiToken) {
+        this.$router.push({ name: "users-id", params: { id } });
+      } else {
+        this.message = "You must be authenticated to apply this action";
+      }
     },
   },
 };
