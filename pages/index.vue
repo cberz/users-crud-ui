@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-10 px-24 flex flex-col">
+  <div class="my-10 px-24 flex flex-col">
     <Message :message="message" />
     <div class="flex justify-between">
       <h1 class="text-3xl leading-6">User administration system</h1>

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full fixed bottom-0 border-t">
+  <div class="w-full border-t">
     <div class="py-4 space-x-2 flex items-center justify-center">
       <span> Made with </span>
       <svg
