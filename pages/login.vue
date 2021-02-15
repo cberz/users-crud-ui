@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-12 flex items-center justify-center">
+  <div class="my-12 flex items-center justify-center">
     <div class="p-20 flex flex-col items-center justify-center">
       <div class="flex flex-col items-center">
         <span class="mt-2 text-3xl">Login</span>
@@ -13,6 +13,7 @@
             name="email"
             v-model="email"
             placeholder="Use test@demo.com"
+            @keyup.enter="submitLogin()"
           />
 
           <span class="mt-1 text-red-500" v-if="errors && errors.email">
@@ -27,6 +28,7 @@
             name="password"
             v-model="password"
             placeholder="Use 'password'"
+            @keyup.enter="submitLogin()"
           />
 
           <span class="mt-1 text-red-500" v-if="errors && errors.password">
@@ -41,7 +43,7 @@
         Submit
       </button>
     </div>
-    <div class="w-1/2">
+    <div class="hidden w-1/2 lg:block">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         data-name="Layer 1"

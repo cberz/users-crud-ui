@@ -48,9 +48,9 @@
               </div>
 
               <div
-                class="space-y-8 flex flex-col items-center lg:flex-row lg:space-y-0 lg:space-x-12"
+                class="space-y-8 flex flex-col lg:items-center lg:flex-row lg:space-y-0 lg:space-x-12"
               >
-                <div class="w-2/3">
+                <div class="flex-1 lg:w-2/3">
                   <label for="email" class="block font-medium"
                     >Email address</label
                   >
@@ -86,7 +86,7 @@
               </div>
 
               <div
-                class="space-y-8 flex flex-col items-center lg:flex-row lg:space-y-0 lg:space-x-12"
+                class="space-y-8 flex flex-col lg:items-center lg:flex-row lg:space-y-0 lg:space-x-12"
               >
                 <div class="flex-1">
                   <label for="personal_id" class="block font-medium"
