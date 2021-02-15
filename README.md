@@ -1,20 +1,45 @@
-# maintenance-crud-frontend
+# User maintenance CRUD Project
 
-## Build Setup
+Basic User Interface to interact with users information.
+
+This project is based on fake data.
+
+For demo purposes you can login into de app with these credentials
+
+Email: test@demo.com
+Password: password
+
+## Browser Support
+
+![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)
+Latest ✔
+
+## Dependencies
+
+You must have installed npm and node on the latest versions
+
+https://nodejs.org/en/
+
+## How to use
+
+Move to the root directory on maintenance-crud-frontend
 
 ```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+$ cd maintenance-crud-frontend/
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Run:
+
+```bash
+npm install
+
+```
+
+```bash
+npm run dev
+
+```
+
+#### On the browser visit
+
+http://localhost:3000
