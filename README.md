@@ -22,12 +22,6 @@ https://nodejs.org/en/
 
 ## How to use
 
-Move to the root directory on maintenance-crud-frontend
-
-```bash
-$ cd maintenance-crud-frontend/
-```
-
 Run:
 
 ```bash
